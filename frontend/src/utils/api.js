@@ -1,7 +1,6 @@
 class Api {
-  constructor({ url, key }) {
+  constructor({ url }) {
     this._url = url;
-    this._key = key;
   }
 
   _checkStatus(res) {
@@ -15,9 +14,7 @@ class Api {
   getUserInfo() {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
-      headers: {
-        authorization: this._key
-      }
+      credentials: 'include',
     })
     .then(res => {
       return this._checkStatus(res);
@@ -27,9 +24,7 @@ class Api {
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
-      headers: {
-        authorization: this._key
-      }
+      credentials: 'include',
     })
     .then(res => {
       return this._checkStatus(res);
@@ -40,31 +35,30 @@ class Api {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
-        authorization: this._key,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         name,
         about: job
-      })
+      }),
+      credentials: 'include',
     })
     .then(res => {
       return this._checkStatus(res);
     })
   }
 
-  addNewCard(name, link, likes) {
+  addNewCard(name, link) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: {
-        authorization: this._key,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         name,
         link,
-        likes
-      })
+      }),
+      credentials: 'include',
     })
     .then(res => {
       return this._checkStatus(res);
@@ -74,9 +68,7 @@ class Api {
   deleteCard(id) {
     return fetch(`${this._url}/cards/${id}`, {
       method: 'DELETE',
-      headers: {
-        authorization: this._key,
-      },
+      credentials: 'include',
     })
     .then(res => {
       return this._checkStatus(res);
@@ -86,9 +78,7 @@ class Api {
   likeCard(id) {
     return fetch(`${this._url}/cards/${id}/likes`, {
       method: 'PUT',
-      headers: {
-        authorization: this._key,
-      }
+      credentials: 'include',
     })
     .then(res => {
       return this._checkStatus(res);
@@ -98,9 +88,7 @@ class Api {
   cancelLike(id) {
     return fetch(`${this._url}/cards/${id}/likes`, {
       method: 'DELETE',
-      headers: {
-        authorization: this._key,
-      }
+      credentials: 'include',
     })
     .then(res => {
       return this._checkStatus(res);
@@ -111,12 +99,12 @@ class Api {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
-        authorization: this._key,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         avatar: link
-      })
+      }),
+      credentials: 'include',
     })
     .then(res => {
       return this._checkStatus(res);
@@ -125,8 +113,7 @@ class Api {
 } 
 
 const api = new Api({
-  url: 'https://nomoreparties.co/v1/cohort-63',
-  key: '1f54a3c5-b2a8-45c9-9b64-ac21ab4a1c2a'
+  url: 'http://localhost:4000',
 });
 
 export default api;

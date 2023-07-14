@@ -107,16 +107,17 @@ module.exports.login = (req, res, next) => {
 
   return User.findUser(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'c0e93f2d3d88bacea4c540ff0c6a64c12bfebbfe78d0f77b41e85975521d9437', {
+      const token = jwt.sign({ _id: user._id }, 'key', {
         expiresIn: '7d',
       });
 
       res.cookie('jwt', token, {
-        maxAge: 3600,
+        maxAge: 600000,
         httpOnly: true,
+        sameSite: true,
       });
 
-      res.send({ jwt: token });
+      return res.send({ jwt: token });
     })
     .catch(next);
 };

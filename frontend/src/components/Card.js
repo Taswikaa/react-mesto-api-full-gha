@@ -17,8 +17,8 @@ function Card({ cardData, onCardClick, onCardLike, onCardDelete }) {
 
   const userData = React.useContext(CurrentUserContext);
 
-  const isOwn = cardData.owner._id === userData._id;
-  const isLiked = cardData.likes.some(i => i._id === userData._id);
+  const isOwn = cardData.owner === userData._id;
+  const isLiked = cardData.likes.some(i => i === userData._id);
 
   const cardLikeButtonClassName = ( 
     `button elements__favorite ${isLiked && 'elements__favorite_active'}` 

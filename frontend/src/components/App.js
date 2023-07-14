@@ -46,7 +46,7 @@ function App() {
   }
 
   const handleLikeClick = function(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
 
     if (isLiked) {
       api.cancelLike(card._id)
@@ -116,27 +116,23 @@ function App() {
   const signOut = function() {
     setLoggedIn(false);
     setEmailText('');
-    localStorage.removeItem('token');
     navigate('/sign-in', {replace: true});
   }
 
   const checkToken = () => {
-    const jwt = localStorage.getItem('token');
-
-    if (jwt) {
-      auth.getLoggedUserInfo(jwt)
+    auth.getLoggedUserInfo()
       .then(data => {
-        loginUser(data.data.email);
-        navigate('/', {replace: true})
+        loginUser(data.email);
+        navigate('/', {replace: true});
       })
       .catch(err => {
         console.log('Ошибка при обработке токена', err);
       })
-    }
    } 
 
   useEffect(() => {
     checkToken();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -147,7 +143,7 @@ function App() {
       Promise.all([userInfoPromise, initialCardsPromise])
       .then(([userInfo, cards]) => {
         setCurrentUser(userInfo);
-        setCards(cards);
+        setCards(cards.reverse());
       })
       .catch(err => {
         console.log('Ошибка получения данных', err);
@@ -160,7 +156,7 @@ function App() {
 
     api.editUserInfo(name, description)
     .then(data => {
-      setCurrentUser(data);
+      setCurrentUser(data.data);
       closeAllPopups();
     })
     .catch(err => {
@@ -176,7 +172,7 @@ function App() {
 
     api.changeAvatar(link)
     .then(data => {
-      setCurrentUser(data);
+      setCurrentUser(data.data);
       closeAllPopups();
     })
     .catch(err => {
@@ -190,7 +186,7 @@ function App() {
   const handleAddPlaceSubmit = function(name, link) {
     setIsAddPlacePopupLoading(true);
 
-    api.addNewCard(name, link, [])
+    api.addNewCard(name, link)
     .then(data => {
       setCards([data, ...cards]);
       closeAllPopups();
