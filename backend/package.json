@@ -26,6 +26,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.3",
     "validator": "^13.9.0",
-    "winston": "^3.9.0"
+    "winston": "^3.9.0",
+    "cookie-parser": "^1.4.6"
   }
 }
