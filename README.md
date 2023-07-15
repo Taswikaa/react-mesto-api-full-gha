@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.55.34
+IP 158.160.55.34
 
-Frontend http://mesto.yuwarika.nomoredomains.xyz/
+Frontend https://mesto.yuwarika.nomoredomains.xyz/
 
-Backend http://api.mesto.yuwarika.nomoredomains.xyz/
+Backend https://api.mesto.yuwarika.nomoredomains.xyz/
