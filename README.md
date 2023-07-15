@@ -13,4 +13,4 @@ IP-адрес 158.160.55.34
 
 Frontend http://mesto.yuwarika.nomoredomains.xyz/
 
-Backend hhttp://api.mesto.yuwarika.nomoredomains.xyz/
+Backend http://api.mesto.yuwarika.nomoredomains.xyz/
