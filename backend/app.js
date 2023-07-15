@@ -10,7 +10,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(cookieParser());
-app.use(cors({ origin: 'http://mesto.yuwarika.nomoredomains', credentials: true }));
+app.use(cors({ origin: 'http://mesto.yuwarika.nomoredomains.xyz', credentials: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
