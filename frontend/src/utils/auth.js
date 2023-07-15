@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.mesto.yuwarika.nomoredomains.xyz';
+export const BASE_URL = 'https://api.mesto.yuwarika.nomoredomains.xyz';
 
 const getResponseData = function(res) {
   if (res.ok) {
