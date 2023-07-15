@@ -1,6 +1,6 @@
 const allowedCors = [
-  'https://mesto.yuwarika.nomoredomains.xyz',
-  'http://mesto.yuwarika.nomoredomains.xyz',
+  'https://mesto.yuwarika.nomoredomains.xyz/',
+  'http://mesto.yuwarika.nomoredomains.xyz/',
   'http://mesto.yuwarika.nomoredomains.xyz/sign-up',
   'http://mesto.yuwarika.nomoredomains.xyz/sign-in',
   'localhost:3000',
