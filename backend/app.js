@@ -12,7 +12,7 @@ const app = express();
 app.use(require('./middlewares/cors'));
 
 app.use(cookieParser());
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'http://api.mesto.yuwarika.nomoredomains', credentials: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

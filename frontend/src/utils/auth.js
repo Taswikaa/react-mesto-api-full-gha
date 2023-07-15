@@ -1,6 +1,4 @@
-import React from 'react';
-
-export const BASE_URL = 'http://localhost:4000';
+export const BASE_URL = 'http://api.mesto.yuwarika.nomoredomains';
 
 const getResponseData = function(res) {
   if (res.ok) {

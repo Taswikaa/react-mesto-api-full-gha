@@ -113,7 +113,7 @@ class Api {
 } 
 
 const api = new Api({
-  url: 'http://localhost:4000',
+  url: 'http://api.mesto.yuwarika.nomoredomains',
 });
 
 export default api;
