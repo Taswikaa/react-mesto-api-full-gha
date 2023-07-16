@@ -10,9 +10,6 @@ const NotFoundError = require('./errors/not-found-error');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-console.log(process.env.NODE_ENV);
-console.log(process.env.JWT_SECRET);
-
 app.use(cookieParser());
 app.use(cors({ origin: 'https://mesto.yuwarika.nomoredomains.xyz', credentials: true }));
 
