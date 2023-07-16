@@ -14,7 +14,7 @@ const app = express();
 // console.log(process.env.JWT_SECRET);
 
 app.use(cookieParser());
-app.use(cors({ origin: 'https://mesto.yuwarika.nomoredomains.xyz/', credentials: true }));
+app.use(cors({ origin: 'https://mesto.yuwarika.nomoredomains.xyz', credentials: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
