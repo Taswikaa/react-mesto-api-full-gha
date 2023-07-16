@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
+// require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -10,8 +10,8 @@ const NotFoundError = require('./errors/not-found-error');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-console.log(process.env.NODE_ENV);
-console.log(process.env.JWT_SECRET);
+// console.log(process.env.NODE_ENV);
+// console.log(process.env.JWT_SECRET);
 
 app.use(cookieParser());
 app.use(cors({ origin: 'https://mesto.yuwarika.nomoredomains.xyz/', credentials: true }));
