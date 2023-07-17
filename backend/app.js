@@ -27,8 +27,8 @@ app.get('/crash-test', () => {
 
 app.use(require('./routes/index'));
 
-app.patch('*', () => {
-  throw new NotFoundError('Рута не существует');
+app.patch('*', (req, res, next) => {
+  next(new NotFoundError('Рута не существует'));
 });
 
 app.use(errorLogger);
