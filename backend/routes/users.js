@@ -25,7 +25,7 @@ router.get('/users/me', auth, getCurrentUser);
 
 router.get('/users/:userId', auth, celebrate({
   params: Joi.object().keys({
-    userId: Joi.string().custom(checkId),
+    userId: Joi.string().custom(checkId).required(),
   }),
 }), getUser);
 
@@ -41,14 +41,14 @@ router.post('/signup', celebrate({
 
 router.patch('/users/me', auth, celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
+    name: Joi.string().min(2).max(30).required(),
+    about: Joi.string().min(2).max(30).required(),
   }),
 }), updateUserInfo);
 
 router.patch('/users/me/avatar', auth, celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().pattern(/^https?:\/\/(w{3}\.)?[a-z1-9-._~:/?#@!$&'()*+,;[\]=]+#?$/),
+    avatar: Joi.string().pattern(/^https?:\/\/(w{3}\.)?[a-z1-9-._~:/?#@!$&'()*+,;[\]=]+#?$/).required(),
   }),
 }), updateUserAvatar);
 
