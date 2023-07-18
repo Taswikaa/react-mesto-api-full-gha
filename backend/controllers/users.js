@@ -117,7 +117,7 @@ module.exports.login = (req, res, next) => {
         maxAge: 86400000,
         httpOnly: true,
         sameSite: true,
-      }).end();
+      });
     })
     .catch(next);
 };
