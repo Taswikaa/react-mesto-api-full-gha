@@ -29,7 +29,7 @@ const Login = ({ loginUser, setInfoTooltipStatus }) => {
 
     auth.authorize(email, password)
     .then(res => {
-      if (res.jwt) {
+      if (res) {
         loginUser(email);
         navigate('/', {replace: true});
       }
