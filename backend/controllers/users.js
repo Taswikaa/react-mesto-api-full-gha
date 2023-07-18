@@ -117,9 +117,7 @@ module.exports.login = (req, res, next) => {
         maxAge: 86400000,
         httpOnly: true,
         sameSite: true,
-      });
-
-      return res.send({ jwt: token });
+      }).end();
     })
     .catch(next);
 };
