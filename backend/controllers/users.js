@@ -59,7 +59,7 @@ module.exports.createUser = (req, res, next) => {
           }
 
           if (err.code === 11000) {
-            return next(new ConflictError('Этот адрес уже используется'));
+            return next(new ConflictError('Эта почта уже используется'));
           }
 
           return next(err);
