@@ -119,12 +119,15 @@ module.exports.login = (req, res, next) => {
         sameSite: true,
       });
 
-      if (user.avatar) {
-        console.log('Поле аватар');
+      if (user.password) {
+        console.log('Поле пароль');
+        console.log(user.password);
+        // eslint-disable-next-line no-param-reassign
+        delete user.password;
       }
 
       if (user.password) {
-        console.log('Поле пароль');
+        console.log('новое Поле пароль');
         console.log(user.password);
       }
 
