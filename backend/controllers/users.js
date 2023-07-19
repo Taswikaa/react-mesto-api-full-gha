@@ -121,24 +121,14 @@ module.exports.login = (req, res, next) => {
 
       const userWithoutPassword = user.toObject();
 
-      if (user.password) {
-        console.log('Поле пароль');
-        console.log(user.password);
-        // eslint-disable-next-line no-param-reassign
-        // user.set('password', undefined);
-        delete userWithoutPassword.password;
-      }
+      delete userWithoutPassword.password;
 
-      if (userWithoutPassword.password) {
-        console.log('новое Поле пароль');
-        console.log(user.password);
-      }
-
-      console.log('новое Поле пароль');
+      console.log('Старый пароль');
       console.log(user.password);
-      console.log(userWithoutPassword);
+      console.log('Новый пароль');
+      console.log(userWithoutPassword.password);
 
-      res.send(user);
+      res.send(userWithoutPassword);
     })
     .catch(next);
 };
