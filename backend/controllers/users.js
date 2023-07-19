@@ -121,9 +121,16 @@ module.exports.login = (req, res, next) => {
 
       console.log('Юзер');
       console.log(user);
-      console.log('');
+      console.log(' ');
       console.log('Юзер Пароль');
       console.log(user.password);
+      const { ...newUser } = user;
+      console.log(' ');
+      console.log('new Юзер');
+      console.log(newUser);
+      console.log(' ');
+      console.log('new Юзер Пароль');
+      console.log(newUser.password);
 
       res.send(user);
     })
