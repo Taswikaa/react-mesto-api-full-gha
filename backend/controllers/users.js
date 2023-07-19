@@ -120,7 +120,8 @@ module.exports.login = (req, res, next) => {
       });
 
       console.log('Юзер');
-      console.log(user);
+      // eslint-disable-next-line no-underscore-dangle
+      console.log(user._doc);
       console.log(' ');
       console.log('Юзер Пароль');
       console.log(user.password);
