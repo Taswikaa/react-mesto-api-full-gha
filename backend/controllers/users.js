@@ -125,6 +125,8 @@ module.exports.login = (req, res, next) => {
       console.log(user.password);
       console.log('Новый пароль');
       console.log(userWithoutPassword.password);
+      console.log('Новый юзер');
+      console.log(userWithoutPassword);
 
       res.send(userWithoutPassword);
     })
