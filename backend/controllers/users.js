@@ -119,6 +119,9 @@ module.exports.login = (req, res, next) => {
         sameSite: true,
       });
 
+      console.log('Юзер');
+      console.log(user);
+      console.log('');
       console.log('Юзер Пароль');
       console.log(user.password);
 
