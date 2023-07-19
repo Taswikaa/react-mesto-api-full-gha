@@ -46,14 +46,11 @@ userSchema.statics.findUser = function (email, password) {
         return Promise.reject(new UnauthorizedError('Неправильные почта или пароль'));
       }
 
-      console.log(user);
-
       return bcryptjs.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
             return Promise.reject(new UnauthorizedError('Неправильные почта или пароль'));
           }
-          console.log(user);
 
           return user;
         });
