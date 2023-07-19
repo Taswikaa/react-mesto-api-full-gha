@@ -125,6 +125,7 @@ module.exports.login = (req, res, next) => {
 
       if (user.password) {
         console.log('Поле пароль');
+        console.log(user.password);
       }
 
       res.send(user);
