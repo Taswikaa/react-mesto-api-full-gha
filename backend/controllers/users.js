@@ -119,14 +119,8 @@ module.exports.login = (req, res, next) => {
         sameSite: true,
       });
 
+      // eslint-disable-next-line no-shadow
       const { password, ...userWithoutPassword } = user;
-
-      console.log('Старый пароль');
-      console.log(user.password);
-      console.log('Новый пароль');
-      console.log(userWithoutPassword.password);
-      console.log('Новый юзер');
-      console.log(userWithoutPassword);
 
       res.send(userWithoutPassword);
     })

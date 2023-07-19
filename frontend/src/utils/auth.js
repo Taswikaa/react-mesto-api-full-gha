@@ -34,7 +34,6 @@ export const authorize = (email, password) => {
     credentials: 'include',
   })
   .then(response => {
-    console.log(response);
     return getResponseData(response);
   })
 }

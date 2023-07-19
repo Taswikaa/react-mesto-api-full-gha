@@ -30,7 +30,6 @@ const Register = ({ setInfoTooltipStatus }) => {
     auth.register(email, password)
     .then(res => {
       console.log('удалось зарегистрироваться');
-      console.log(res);
       setInfoTooltipStatus(true);
       navigate('/sign-in', {replace: true});
     })

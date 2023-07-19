@@ -30,7 +30,6 @@ const Login = ({ loginUser, setInfoTooltipStatus }) => {
     auth.authorize(email, password)
     .then(res => {
       if (res) {
-        console.log(res);
         loginUser(email);
         navigate('/', {replace: true});
       }
