@@ -119,9 +119,7 @@ module.exports.login = (req, res, next) => {
         sameSite: true,
       });
 
-      const userWithoutPassword = user.toObject();
-
-      delete userWithoutPassword.password;
+      const { password, userWithoutPassword } = user;
 
       console.log('Старый пароль');
       console.log(user.password);
