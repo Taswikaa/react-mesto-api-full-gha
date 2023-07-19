@@ -123,13 +123,19 @@ module.exports.login = (req, res, next) => {
         console.log('Поле пароль');
         console.log(user.password);
         // eslint-disable-next-line no-param-reassign
-        delete user.password;
+        const temp = user.toObject();
+        delete temp.password;
+        // eslint-disable-next-line no-param-reassign
+        user = new this(temp);
       }
 
       if (user.password) {
         console.log('новое Поле пароль');
         console.log(user.password);
       }
+
+      console.log('новое Поле пароль');
+      console.log(user.password);
 
       res.send(user);
     })
