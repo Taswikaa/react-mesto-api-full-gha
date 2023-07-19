@@ -109,7 +109,6 @@ module.exports.login = (req, res, next) => {
 
   return User.findUser(email, password)
     .then((user) => {
-      console.log(user);
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'key', {
         expiresIn: '7d',
       });
@@ -119,6 +118,14 @@ module.exports.login = (req, res, next) => {
         httpOnly: true,
         sameSite: true,
       });
+
+      if (user.avatar) {
+        console.log('Поле аватар');
+      }
+
+      if (user.password) {
+        console.log('Поле пароль');
+      }
 
       res.send(user);
     })
