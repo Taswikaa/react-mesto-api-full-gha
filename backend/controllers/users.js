@@ -119,7 +119,7 @@ module.exports.login = (req, res, next) => {
         sameSite: true,
       });
 
-      const { password, userWithoutPassword } = user;
+      const { password, ...userWithoutPassword } = user;
 
       console.log('Старый пароль');
       console.log(user.password);
