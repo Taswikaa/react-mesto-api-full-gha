@@ -156,7 +156,6 @@ function App() {
 
     api.editUserInfo(name, description)
     .then(data => {
-      console.log(data.data);
       setCurrentUser(data.data);
       closeAllPopups();
     })
