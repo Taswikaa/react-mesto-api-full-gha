@@ -21,5 +21,8 @@ module.exports = (req, res, next) => {
 
   req.user = payload;
 
+  console.log(req.user);
+  console.log(req.user.password);
+
   next();
 };
