@@ -119,21 +119,14 @@ module.exports.login = (req, res, next) => {
         sameSite: true,
       });
 
-      console.log('Юзер');
-      // eslint-disable-next-line no-underscore-dangle
-      console.log(user._doc);
-      console.log(' ');
-      console.log('Юзер Пароль');
-      console.log(user.password);
-      const { ...newUser } = user;
-      console.log(' ');
-      console.log('new Юзер');
-      console.log(newUser);
-      console.log(' ');
-      console.log('new Юзер Пароль');
-      console.log(newUser.password);
+      // eslint-disable-next-line no-shadow
+      const { password, ...userWithoutPassword } = user;
 
-      res.send(user);
+      console.log(user.password);
+      console.log('123');
+      console.log(userWithoutPassword.password);
+
+      res.send(userWithoutPassword);
     })
     .catch(next);
 };
